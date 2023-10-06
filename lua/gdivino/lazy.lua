@@ -23,13 +23,11 @@ local plugins = {
 								build = ":TSUpdate"
 				},
 
-				'nvim-treesitter/playground',
+        {'nvim-treesitter/playground'},
 
-				{ 
-								'rose-pine/neovim', 
-								name = 'rose-pine' 
-				},
+				{'rose-pine/neovim', name = 'rose-pine'},
 
+        {'theprimeagen/harpoon'},
 				{'mbbill/undotree'},
 				{'tpope/vim-fugitive'},
 				
