@@ -1,5 +1,5 @@
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
-local GDivino_Fugitive = vim.api.nvim_create_augroup("gdivino_fugitive", {})
+local GDivino_Fugitive = vim.api.nvim_create_augroup("GDivino_Fugitive", {})
 
 local autocmd = vim.api.nvim_create_autocmd
 autocmd("BufWinEnter", {
