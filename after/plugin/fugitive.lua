@@ -25,8 +25,6 @@ autocmd("BufWinEnter", {
     -- needed if i did not set the branch up correctly
     vim.keymap.set("n", "<leader>go", ":Git push -u origin ", opts)
     vim.keymap.set("n", "<leader>gc", ":Git commit", opts)
-    vim.keymap.set("n", "<leader>ga", function()
-      vim.cmd.Git({'add', '.'})
-    end, opts)
+    vim.keymap.set("n", "<leader>ga", ":Git add .", opts)
   end,
 })
