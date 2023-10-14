@@ -3,7 +3,7 @@ vim.keymap.set("n", "<leader>tp", vim.cmd.TSPlaygroundToggle)
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
   ensure_installed = { 
-    "HCL", 
+    "hcl", 
     "terraform", 
     "javascript", 
     "typescript", 
