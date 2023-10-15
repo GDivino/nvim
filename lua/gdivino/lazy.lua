@@ -12,29 +12,37 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  -- init.lua:
+
+  -- ========== telescope ==========
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.3',
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
+
+  -- ========== treesitter ==========
   {
     'nvim-treesitter/nvim-treesitter',
     build = ":TSUpdate"
   },
-
   { 'nvim-treesitter/playground' },
 
+  -- ========== fonts ==========
   {
     'rose-pine/neovim',
     name = 'rose-pine'
   },
 
+  -- ========== harpoon ==========
   { 'theprimeagen/harpoon' },
+
+  -- ========== undotree ==========
   { 'mbbill/undotree' },
+
+  -- ========== fugitive ==========
   { 'tpope/vim-fugitive' },
 
-  --- Uncomment these if you want to manage LSP servers from neovim
+  -- ========== LSP ==========
   { 'williamboman/mason.nvim' },
   { 'williamboman/mason-lspconfig.nvim' },
   {
@@ -45,6 +53,8 @@ local plugins = {
   { 'hrsh7th/cmp-nvim-lsp' },
   { 'hrsh7th/nvim-cmp' },
   { 'L3MON4D3/LuaSnip' },
+
+  -- ========== nerdcommenter ==========
   { 'preservim/nerdcommenter' },
 }
 
