@@ -25,7 +25,10 @@ local plugins = {
 
   { 'nvim-treesitter/playground' },
 
-  { 'rose-pine/neovim',                 name = 'rose-pine' },
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine'
+  },
 
   { 'theprimeagen/harpoon' },
   { 'mbbill/undotree' },
@@ -34,8 +37,9 @@ local plugins = {
   --- Uncomment these if you want to manage LSP servers from neovim
   { 'williamboman/mason.nvim' },
   { 'williamboman/mason-lspconfig.nvim' },
-  { 'VonHeikemen/lsp-zero.nvim',
-    branch = 'v3.x' 
+  {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v3.x'
   },
   { 'neovim/nvim-lspconfig' },
   { 'hrsh7th/cmp-nvim-lsp' },

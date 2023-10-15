@@ -4,5 +4,10 @@ vim.g.NERDCustomDelimiters = {
     left = "#",
     leftAlt = "# ==========",
     rightAlt = "=========="
-  }
+  },
+  lua = {
+    left = "-- ",
+    leftAlt = "-- ==========",
+    rightAlt = "==========",
+  },
 }
