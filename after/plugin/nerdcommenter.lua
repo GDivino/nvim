@@ -10,4 +10,9 @@ vim.g.NERDCustomDelimiters = {
     leftAlt = "-- ==========",
     rightAlt = "==========",
   },
+  bash = {
+    left = "#",
+    leftAlt = "# ==========",
+    rightAlt = "=========="
+  },
 }
