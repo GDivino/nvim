@@ -41,7 +41,7 @@ function luaLineConf(content)
   })
 end
 
-autocmd('BufWinEnter', {
+autocmd({ 'BufWinEnter', 'FileType' }, {
   group = GDivino_Lualine,
   pattern = '*',
   callback = function()
