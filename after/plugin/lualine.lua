@@ -26,18 +26,13 @@ function luaLineConf(content)
       lualine_a = { 'mode' },
       lualine_b = { 'branch', 'diff', 'diagnostics' },
       lualine_c = { 'filename' },
-      lualine_x = content,
+      lualine_x = { 'encoding', 'filetype' },
       lualine_y = { 'progress' },
       lualine_z = { 'location' }
     },
-    inactive_sections = {
-      lualine_a = {},
-      lualine_b = {},
-      lualine_c = { 'filename' },
-      lualine_x = { 'location' },
-      lualine_y = {},
-      lualine_z = {}
-    },
+    tabline = {
+      lualine_b = content,
+    }
   })
 end
 
@@ -46,7 +41,7 @@ autocmd({ 'BufWinEnter', 'FileType' }, {
   pattern = '*',
   callback = function()
     if vim.bo.ft ~= 'yaml' then
-      luaLineConf({ 'encoding', 'filetype' })
+      luaLineConf({ 'filename' })
       return
     end
 
