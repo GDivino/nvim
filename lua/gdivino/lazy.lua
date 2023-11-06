@@ -56,6 +56,9 @@ local plugins = {
 
   -- ========== nerdcommenter ==========
   { 'preservim/nerdcommenter' },
+
+  -- ========== yaml revealer ==========
+  { 'Einenlum/yaml-revealer' }
 }
 
 require("lazy").setup(plugins, opts)
