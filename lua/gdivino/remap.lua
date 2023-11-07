@@ -41,5 +41,7 @@ vim.keymap.set("n", "<leader><leader>", function()
   vim.cmd("so")
 end)
 
+vim.keymap.set("n", "<leader>dd", function() vim.cmd("echo @%") end)
+
 --  vim.keymap.set("n", "<leader>wq", "ciw\"<C-r>\"\"<esc>")
 --  vim.keymap.set("n", "<leader>wu", "di\"hPl2x")
