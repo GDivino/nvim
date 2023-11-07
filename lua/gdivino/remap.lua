@@ -42,6 +42,8 @@ vim.keymap.set("n", "<leader><leader>", function()
 end)
 
 vim.keymap.set("n", "<leader>dd", function() vim.cmd("echo @%") end)
+--  vim.keymap.set("n", "<leader>dy", function() vim.cmd("redir @%") end)
+vim.keymap.set("n", "<leader>dy", ":redir @* | echo @% | redir END<CR>")
 
 --  vim.keymap.set("n", "<leader>wq", "ciw\"<C-r>\"\"<esc>")
 --  vim.keymap.set("n", "<leader>wu", "di\"hPl2x")
