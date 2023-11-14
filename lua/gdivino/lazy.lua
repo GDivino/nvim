@@ -74,6 +74,9 @@ local plugins = {
       'nvim-tree/nvim-web-devicons', opt = true,
     }
   },
+
+  -- ========== copilot ==========
+  { 'github/copilot.vim' },
 }
 
 require('lazy').setup(plugins, opts)
