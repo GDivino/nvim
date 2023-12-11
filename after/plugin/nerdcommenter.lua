@@ -3,7 +3,7 @@ vim.g.NERDCustomDelimiters = {
   terraform = {
     left = "#",
     leftAlt = "# ==========",
-    rightAlt = "=========="
+    rightAlt = "==========",
   },
   lua = {
     left = "-- ",
@@ -13,6 +13,11 @@ vim.g.NERDCustomDelimiters = {
   sh = {
     left = "#",
     leftAlt = "# ==========",
-    rightAlt = "=========="
+    rightAlt = "==========",
+  },
+  yaml = {
+    left = "#",
+    leftAlt = "# ==========",
+    rightAlt = "==========",
   },
 }
