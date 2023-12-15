@@ -20,4 +20,9 @@ vim.g.NERDCustomDelimiters = {
     leftAlt = "# ==========",
     rightAlt = "==========",
   },
+  zsh = {
+    left = "#",
+    leftAlt = "# ==========",
+    rightAlt = "==========",
+  },
 }
