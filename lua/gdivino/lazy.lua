@@ -72,11 +72,21 @@ local plugins = {
     'nvim-lualine/lualine.nvim',
     dependencies = {
       'nvim-tree/nvim-web-devicons', opt = true,
-    }
+    },
   },
 
   -- ========== copilot ==========
   { 'github/copilot.vim' },
+
+  -- ========== octo ==========
+  {
+    'pwntester/octo.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'nvim-tree/nvim-web-devicons',
+    },
+  },
 }
 
 require('lazy').setup(plugins, opts)
