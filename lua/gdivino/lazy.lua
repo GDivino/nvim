@@ -79,7 +79,7 @@ local plugins = {
   { 'github/copilot.vim' },
 
   -- ========== octo ==========
-  { 
+  {
     'pwntester/octo.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
