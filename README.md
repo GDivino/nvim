@@ -6,10 +6,17 @@ Plugins:
 
 - telescope
 - nvim-treesitter 
+- playground
 - harpoon
 - undotree
 - fugitive
 - lsp-zero
+- luasnip
+- nerdcommenter
+- yaml.nvim
+- lualine
+- copilot
+- octo
 
 Color schemes:
 
