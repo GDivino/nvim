@@ -2,7 +2,7 @@ local octo = require("octo")
 vim.keymap.set("n", "<leader>oc", ":Octo pr create <CR>")
 vim.keymap.set("n", "<leader>ol", ":Octo pr list <CR>")
 vim.keymap.set("n", "<leader>oe", ":Octo pr edit ")
-vim.g.octo_viewer = "GDevs123"
+vim.g.octo_viewer = "GDivino"
 
 octo.setup({
   enable_builtin = true,
