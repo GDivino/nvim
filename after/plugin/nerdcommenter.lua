@@ -6,7 +6,7 @@ vim.g.NERDCustomDelimiters = {
     rightAlt = "==========",
   },
   lua = {
-    left = "-- ",
+    left = "--",
     leftAlt = "-- ==========",
     rightAlt = "==========",
   },
