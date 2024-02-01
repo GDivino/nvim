@@ -88,6 +88,9 @@ local plugins = {
       'nvim-tree/nvim-web-devicons',
     }
   },
+
+  -- ========== mini.nvim ==========
+  { 'echasnovski/mini.nvim', version = '*' },
 }
 
 require('lazy').setup(plugins, opts)
