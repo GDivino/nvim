@@ -40,6 +40,19 @@ lsp_zero.set_preferences({
     sign_icons = {}
 })
 
+local GDivino_lsp = vim.api.nvim_create_augroup("GDivino_lsp", {})
+local autocmd = vim.api.nvim_create_autocmd
+autocmd("BufWinEnter", {
+    group = GDivino_lsp,
+    pattern = "*",
+
+    callback = function()
+        local bufnr = vim.api.nvim_get_current_buf()
+        local opts = { buffer = bufnr, remap = false }
+
+        vim.keymap.set("n", "<leader>lv", ":lua vim.diagnostic.open_float()<CR>", opts)
+    end
+})
 
 -- lsp_zero.on_attach(function(client, bufnr)
 -- see :help lsp-zero-keybindings
