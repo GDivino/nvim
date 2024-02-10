@@ -1,17 +1,22 @@
-local lsp_zero = require('lsp-zero')
-require('mason').setup({})
-
+-- ========== LSP zero ==========
+local lsp_zero = require("lsp-zero")
 lsp_zero.preset("recommended")
-require('mason-lspconfig').setup({
+lsp_zero.setup()
+
+require("lspconfig").lua_ls.setup(lsp_zero.nvim_lua_ls())
+
+-- ========== LSP Mason ==========
+require("mason").setup({})
+require("mason-lspconfig").setup({
     -- Replace the language servers listed here
     -- with the ones you want to install
     ensure_installed = {
-        'eslint',
-        'tsserver',
-        'rust_analyzer',
-        'terraformls',
-        'bashls',
-        'lua_ls',
+        "eslint",
+        "tsserver",
+        "rust_analyzer",
+        "terraformls",
+        "bashls",
+        "lua_ls",
     },
 
     handlers = {
@@ -19,8 +24,12 @@ require('mason-lspconfig').setup({
     },
 })
 
+lsp_zero.set_preferences({
+    sign_icons = {}
+})
 
-local cmp = require('cmp')
+-- ========== CMP ==========
+local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 cmp.setup({
     window = {
@@ -28,16 +37,11 @@ cmp.setup({
         documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-        ['<C-Space>'] = cmp.mapping.complete(),
+        ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+        ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+        ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+        ["<C-Space>"] = cmp.mapping.complete(),
     })
-})
-
-
-lsp_zero.set_preferences({
-    sign_icons = {}
 })
 
 local GDivino_lsp = vim.api.nvim_create_augroup("GDivino_lsp", {})
@@ -54,8 +58,3 @@ autocmd("BufWinEnter", {
     end
 })
 
--- lsp_zero.on_attach(function(client, bufnr)
--- see :help lsp-zero-keybindings
--- to learn the available actions
--- lsp_zero.default_keymaps({buffer = bufnr})
--- end)
