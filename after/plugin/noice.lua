@@ -22,6 +22,15 @@ noice.setup({
             -- lua = false, -- to disable a format, set to `false`
         },
     },
+    messages = {
+        enabled = false
+    },
+    popupmenu = {
+        enabled = false
+    },
+    signature = {
+        enabled = false
+    },
     -- you can enable a preset for easier configuration
     presets = {
         bottom_search = false,     -- use a classic bottom cmdline for search
