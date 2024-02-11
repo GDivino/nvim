@@ -23,13 +23,15 @@ noice.setup({
         },
     },
     messages = {
-        enabled = false
+        enabled = false,
+        -- view = false,
+        -- view_search = "virtualtext",
     },
     popupmenu = {
-        enabled = false
+        enabled = true
     },
     signature = {
-        enabled = false
+        enabled = true
     },
     -- you can enable a preset for easier configuration
     presets = {
@@ -40,4 +42,3 @@ noice.setup({
         lsp_doc_border = false,   -- add a border to hover docs and signature help
     },
 })
-
