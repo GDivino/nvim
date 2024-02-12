@@ -11,6 +11,11 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
+vim.opt.linebreak = false
+vim.keymap.set("n", "<leader>w", function()
+    vim.opt.wrap = not vim.opt.wrap:get()
+    vim.opt.linebreak = not vim.opt.linebreak:get()
+end)
 
 vim.opt.swapfile = false
 vim.opt.backup = false
