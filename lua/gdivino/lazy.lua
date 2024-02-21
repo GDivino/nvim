@@ -43,6 +43,6 @@ local plugins = {
 
     -- ========== fugitive ==========
     { 'tpope/vim-fugitive' },
-
+}
 
 require('lazy').setup(plugins, opts)
