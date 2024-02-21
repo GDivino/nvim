@@ -19,6 +19,19 @@ local plugins = {
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
 
+    -- ========== fonts ==========
+    {
+        'rose-pine/neovim',
+        name = 'rose-pine'
+    },
+
+    -- ========== treesitter ==========
+    {
+        'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate'
+    },
+    { 'nvim-treesitter/playground' },
+
     -- ========== yaml neovim ==========
     {
         'cuducos/yaml.nvim',
@@ -30,5 +43,6 @@ local plugins = {
 
     -- ========== fugitive ==========
     { 'tpope/vim-fugitive' },
+
 
 require('lazy').setup(plugins, opts)
