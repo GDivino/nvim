@@ -7,6 +7,7 @@ require("lspconfig").lua_ls.setup(lsp_zero.nvim_lua_ls())
 require("lspconfig").tsserver.setup({})
 require("lspconfig").bashls.setup({})
 require("lspconfig").terraformls.setup({})
+require("lspconfig").eslint.setup({})
 
 -- ========== LSP Mason ==========
 require("mason").setup({})
