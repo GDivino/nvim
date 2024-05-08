@@ -4,7 +4,9 @@ lsp_zero.preset("recommended")
 lsp_zero.setup()
 
 require("lspconfig").lua_ls.setup(lsp_zero.nvim_lua_ls())
-require("lspconfig").tsserver.setup(lsp_zero.nvim_lua_ls())
+require("lspconfig").tsserver.setup({})
+require("lspconfig").bashls.setup({})
+require("lspconfig").terraformls.setup({})
 
 -- ========== LSP Mason ==========
 require("mason").setup({})
