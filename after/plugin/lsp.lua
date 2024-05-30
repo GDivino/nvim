@@ -5,9 +5,18 @@ lsp_zero.setup()
 
 require("lspconfig").lua_ls.setup(lsp_zero.nvim_lua_ls())
 require("lspconfig").tsserver.setup({})
-require("lspconfig").bashls.setup({})
+require("lspconfig").bashls.setup({
+    filetypes = "sh",
+    settings = {
+        bashIde = {
+            globPattern = "*@(.sh|.inc|.bash|.command)"
+        }
+    },
+    single_file_support = true
+})
 require("lspconfig").terraformls.setup({})
 require("lspconfig").eslint.setup({})
+require("lspconfig").python_lsp_server.setup({})
 
 -- ========== LSP Mason ==========
 require("mason").setup({})
@@ -61,4 +70,3 @@ autocmd("BufWinEnter", {
         vim.keymap.set("n", "<leader>lv", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
     end
 })
-
