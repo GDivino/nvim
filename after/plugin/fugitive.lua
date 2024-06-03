@@ -1,4 +1,4 @@
-vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 local GDivino_Fugitive = vim.api.nvim_create_augroup("GDivino_Fugitive", {})
 
 local autocmd = vim.api.nvim_create_autocmd
@@ -13,12 +13,22 @@ autocmd("BufWinEnter", {
         local bufnr = vim.api.nvim_get_current_buf()
         local opts = { buffer = bufnr, remap = false }
         vim.keymap.set("n", "<leader>gp", function()
-            vim.cmd.Git('push')
+            vim.cmd.Git("push")
         end, opts)
 
         -- rebase always
         vim.keymap.set("n", "<leader>gP", function()
-            vim.cmd.Git('pull')
+            vim.cmd.Git("pull")
+        end, opts)
+
+        vim.keymap.set("n", "<leader>gf", function()
+            vim.cmd.Git("fetch")
+            print("fetched executed")
+        end, opts)
+
+        vim.keymap.set("n", "<leader>gm", function()
+            vim.cmd.Git("merge")
+            print("merge executed")
         end, opts)
 
         -- NOTE: It allows me to easily set the branch i am pushing and any tracking
