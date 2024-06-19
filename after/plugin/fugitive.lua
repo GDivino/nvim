@@ -52,5 +52,6 @@ autocmd("BufWinEnter", {
         vim.keymap.set("n", "<leader>ga", ":Git add .<CR>", opts)
         vim.keymap.set("n", "<leader>gb", ":Git stash list<CR>", opts)
         vim.keymap.set("n", "<leader>gB", ":Git stash pop ", opts)
+        vim.keymap.set("n", "<leader>gs", ":Git stash save ", opts)
     end,
 })
