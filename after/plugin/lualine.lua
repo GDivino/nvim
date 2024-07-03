@@ -41,7 +41,7 @@ function luaLineConf(content)
     })
 end
 
-autocmd({ 'BufWinEnter', 'FileType' }, {
+autocmd({ 'BufWinEnter', 'BufEnter', 'FileType' }, {
     group = GDivino_Lualine,
     pattern = '*',
     callback = function()
@@ -53,3 +53,4 @@ autocmd({ 'BufWinEnter', 'FileType' }, {
         luaLineConf({ yaml.get_yaml_key })
     end
 })
+
