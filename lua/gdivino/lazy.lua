@@ -107,6 +107,13 @@ local plugins = {
             --   If not available, we use `mini` as the fallback
             "rcarriga/nvim-notify",
         }
+    },
+
+    -- ========== indent-blankline.nvim ==========
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {},
     }
 }
 
