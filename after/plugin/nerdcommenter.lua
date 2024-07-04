@@ -25,4 +25,9 @@ vim.g.NERDCustomDelimiters = {
         leftAlt = "# ==========",
         rightAlt = "==========",
     },
+    gitignore = {
+        left = "#",
+        leftAlt = "# ==========",
+        rightAlt = "=========="
+    }
 }
