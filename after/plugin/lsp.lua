@@ -57,6 +57,7 @@ cmp.setup({
     })
 })
 
+-- ========== autocmd ==========
 local GDivino_lsp = vim.api.nvim_create_augroup("GDivino_lsp", {})
 local autocmd = vim.api.nvim_create_autocmd
 autocmd("BufWinEnter", {
@@ -69,4 +70,36 @@ autocmd("BufWinEnter", {
 
         vim.keymap.set("n", "<leader>lv", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
     end
+})
+
+-- ========== terraform autocmd ==========
+local GDivino_tf_lsp = vim.api.nvim_create_augroup("GDivino_tf_lsp", {})
+autocmd({"BufRead", "BufNewFile"}, {
+    group = GDivino_tf_lsp,
+    pattern = "*.tf",
+    command = "silent! autocmd! filetypedetect",
+})
+
+autocmd({"BufRead", "BufNewFile"}, {
+    group = GDivino_tf_lsp,
+    pattern = "*.hcl",
+    command = "set filetype=hcl",
+})
+
+autocmd({"BufRead", "BufNewFile"}, {
+    group = GDivino_tf_lsp,
+    pattern = { ".terraformrc", "terraform.rc" },
+    command = "set filetype=hcl",
+})
+
+autocmd({"BufRead", "BufNewFile"}, {
+    group = GDivino_tf_lsp,
+    pattern = { "*.tf", "*.tfvars" },
+    command = "set filetype=terraform",
+})
+
+autocmd({"BufRead", "BufNewFile"}, {
+    group = GDivino_tf_lsp,
+    pattern = { "*.tfstate", "*.tfstate.backup" },
+    command = "set filetype=json",
 })
