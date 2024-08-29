@@ -114,7 +114,16 @@ local plugins = {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         opts = {},
-    }
+    },
+
+    -- ========== oil.nvim ==========
+    {
+        'stevearc/oil.nvim',
+        opts = {},
+        -- Optional dependencies
+        dependencies = { { "echasnovski/mini.icons", opts = {} } },
+        -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+    },
 }
 
 require("lazy").setup(plugins, opts)
