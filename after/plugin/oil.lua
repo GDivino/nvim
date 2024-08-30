@@ -5,5 +5,6 @@ require("oil").setup({
         ["<C-l>"] = false,
         ["-"] = "actions.parent",
         ["_"] = "actions.open_cwd",
+        ["<C-r>"] = "actions.refresh",
     },
 })
