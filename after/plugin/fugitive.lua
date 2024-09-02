@@ -2,6 +2,21 @@ vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 local GDivino_Fugitive = vim.api.nvim_create_augroup("GDivino_Fugitive", {})
 
 local autocmd = vim.api.nvim_create_autocmd
+
+local function handleGitCommand(mode, shortcut, command, opts)
+    vim.keymap.set(mode, "<leader>" .. shortcut, function()
+        vim.notify("git ".. command .. " in progress...")
+        vim.defer_fn(function()
+            local success, result = pcall(vim.cmd.Git, command)
+            if not success then
+                vim.notify("git " .. command .. " failed: " .. result)
+            else
+                vim.notify("git " .. command .. " executed")
+            end
+        end, 550)
+    end, opts)
+end
+
 autocmd("BufWinEnter", {
     group = GDivino_Fugitive,
     pattern = "*",
@@ -12,46 +27,21 @@ autocmd("BufWinEnter", {
 
         local bufnr = vim.api.nvim_get_current_buf()
         local opts = { buffer = bufnr, remap = false }
-        vim.keymap.set("n", "<leader>gp", function()
-            vim.notify("push in progress...")
-            vim.defer_fn(function()
-                vim.cmd.Git("push")
-                vim.notify("push executed")
-            end, 550)
-        end, opts)
 
-        -- rebase always
-        vim.keymap.set("n", "<leader>gP", function()
-            vim.notify("pull in progress...")
-            vim.defer_fn(function()
-                vim.cmd.Git("pull")
-                vim.notify("pull executed")
-            end, 550)
-        end, opts)
+        handleGitCommand("n", "gp", "push", opts)
+        handleGitCommand("n", "go", "push -u origin", opts)
+        handleGitCommand("n", "gP", "pull", opts)
+        handleGitCommand("n", "gf", "fetch", opts)
+        handleGitCommand("n", "gm", "merge", opts)
+        handleGitCommand("n", "gc", "commit", opts)
+        handleGitCommand("n", "ga", "add .", opts)
+        handleGitCommand("n", "gb", "stash list", opts)
 
-        vim.keymap.set("n", "<leader>gf", function()
-            vim.notify("fetch in progress...", vim.log.levels.INFO)
-            vim.defer_fn(function()
-                vim.cmd.Git("fetch")
-                vim.notify("fetch executed")
-            end, 550)
-        end, opts)
-
-        vim.keymap.set("n", "<leader>gm", function()
-            vim.notify("merge in progress...")
-            vim.defer_fn(function()
-                vim.cmd.Git("merge")
-                vim.notify("merge executed")
-            end, 550)
-        end, opts)
-
-        -- NOTE: It allows me to easily set the branch i am pushing and any tracking
-        -- needed if i did not set the branch up correctly
-        vim.keymap.set("n", "<leader>go", ":Git push -u origin ", opts)
-        vim.keymap.set("n", "<leader>gc", ":Git commit<CR>", opts)
-        vim.keymap.set("n", "<leader>ga", ":Git add .<CR>", opts)
-        vim.keymap.set("n", "<leader>gb", ":Git stash list<CR>", opts)
-        vim.keymap.set("n", "<leader>gB", ":Git stash pop ", opts)
-        vim.keymap.set("n", "<leader>gs", ":Git stash save ", opts)
+        -- vim.keymap.set("n", "<leader>go", ":Git push -u origin ", opts)
+        -- vim.keymap.set("n", "<leader>gc", ":Git commit<CR>", opts)
+        -- vim.keymap.set("n", "<leader>ga", ":Git add .<CR>", opts)
+        -- vim.keymap.set("n", "<leader>gb", ":Git stash list<CR>", opts)
+        vim.keymap.set("n", "<leader>gB", "<cmd>Git stash pop ", opts)
+        vim.keymap.set("n", "<leader>gs", "<cmd>Git stash save ", opts)
     end,
 })
