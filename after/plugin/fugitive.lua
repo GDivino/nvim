@@ -29,7 +29,6 @@ autocmd("BufWinEnter", {
         local opts = { buffer = bufnr, remap = false }
 
         handleGitCommand("n", "gp", "push", opts)
-        handleGitCommand("n", "go", "push -u origin", opts)
         handleGitCommand("n", "gP", "pull", opts)
         handleGitCommand("n", "gf", "fetch", opts)
         handleGitCommand("n", "gm", "merge", opts)
@@ -39,6 +38,7 @@ autocmd("BufWinEnter", {
         -- vim.keymap.set("n", "<leader>gc", ":Git commit<CR>", opts)
         -- vim.keymap.set("n", "<leader>ga", ":Git add .<CR>", opts)
         -- vim.keymap.set("n", "<leader>gb", ":Git stash list<CR>", opts)
+        vim.keymap.set("n", "<leader>go", ":Git push -u origin ", opts)
         vim.keymap.set("n", "<leader>gB", ":Git stash pop ", opts)
         vim.keymap.set("n", "<leader>gs", ":Git stash save ", opts)
         vim.keymap.set("n", "<leader>ga", "<cmd>Git add .<CR>", opts)
