@@ -74,20 +74,6 @@ local plugins = {
         }
     },
 
-    -- ========== copilot ==========
-    -- { "github/copilot.vim" },
-
-    -- ========== octo ==========
-    {
-        "pwntester/octo.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim",
-            -- OR "ibhagwan/fzf-lua",
-            "nvim-tree/nvim-web-devicons",
-        }
-    },
-
     -- ========== ultimate auto pair.nvim ==========
     {
         "altermo/ultimate-autopair.nvim",
