@@ -7,4 +7,7 @@ require("oil").setup({
         ["_"] = "actions.open_cwd",
         ["<C-r>"] = "actions.refresh",
     },
+    view_options = {
+        show_hidden = true,
+    }
 })
