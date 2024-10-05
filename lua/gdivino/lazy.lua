@@ -49,15 +49,6 @@ local plugins = {
     -- ========== nerdcommenter ==========
     { "preservim/nerdcommenter" },
 
-    -- ========== yaml neovim ==========
-    {
-        "cuducos/yaml.nvim",
-        ft = { "yaml" }, -- optional
-        dependencies = {
-            "nvim-telescope/telescope.nvim", -- optional
-        },
-    },
-
     -- ========== lualine ==========
     {
         "nvim-lualine/lualine.nvim",
