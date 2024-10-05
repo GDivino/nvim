@@ -45,13 +45,6 @@ local plugins = {
         }
     },
 
-    -- ========== ultimate auto pair.nvim ==========
-    {
-        "altermo/ultimate-autopair.nvim",
-        event = { "InsertEnter", "CmdlineEnter" },
-        branch = "v0.6", --recommended as each new version will have breaking changes
-    },
-
     -- ========== indent-blankline.nvim ==========
     {
         "lukas-reineke/indent-blankline.nvim",
