@@ -68,6 +68,7 @@ autocmd("BufWinEnter", {
         local opts = { buffer = bufnr, remap = false }
 
         vim.keymap.set("n", "<leader>lv", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+        vim.keymap.set("n", "<C-r>", "<cmd>LspRestart<CR>", opts)
     end,
 })
 
