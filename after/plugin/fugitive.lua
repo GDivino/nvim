@@ -4,8 +4,8 @@ local GDivino_Fugitive = vim.api.nvim_create_augroup("GDivino_Fugitive", {})
 local autocmd = vim.api.nvim_create_autocmd
 
 local function handleGitCommand(mode, shortcut, command, opts)
-    vim.keymap.set(mode, "<leader>" .. shortcut, function()
-        vim.notify("git ".. command .. " in progress...")
+    vim.keymap.set(mode, shortcut, function()
+        vim.notify("git " .. command .. " in progress...")
         vim.defer_fn(function()
             local success, result = pcall(vim.cmd.Git, command)
             if not success then
@@ -28,11 +28,11 @@ autocmd("BufWinEnter", {
         local bufnr = vim.api.nvim_get_current_buf()
         local opts = { buffer = bufnr, remap = false }
 
-        handleGitCommand("n", "gp", "push", opts)
-        handleGitCommand("n", "gP", "pull", opts)
-        handleGitCommand("n", "gf", "fetch", opts)
-        handleGitCommand("n", "gm", "merge", opts)
-        handleGitCommand("n", "gb", "stash list", opts)
+        handleGitCommand("n", "<leader>gp", "push", opts)
+        handleGitCommand("n", "<leader>gP", "pull", opts)
+        handleGitCommand("n", "<leader>gf", "fetch", opts)
+        handleGitCommand("n", "<leader>gm", "merge", opts)
+        handleGitCommand("n", "<leader>gsl", "stash list", opts)
 
         -- vim.keymap.set("n", "<leader>go", ":Git push -u origin ", opts)
         -- vim.keymap.set("n", "<leader>gc", ":Git commit<CR>", opts)
@@ -40,8 +40,10 @@ autocmd("BufWinEnter", {
         -- vim.keymap.set("n", "<leader>gb", ":Git stash list<CR>", opts)
         vim.keymap.set("n", "<leader>go", ":Git push -u origin ", opts)
         vim.keymap.set("n", "<leader>gB", ":Git stash pop ", opts)
-        vim.keymap.set("n", "<leader>gs", ":Git stash save ", opts)
         vim.keymap.set("n", "<leader>ga", "<cmd>Git add .<CR>", opts)
         vim.keymap.set("n", "<leader>gc", "<cmd>Git commit <CR>", opts)
+        vim.keymap.set("n", "<leader>gss", ":Git stash save ", opts)
+        vim.keymap.set("n", "<leader>gsd", ":Git stash drop stash@{", opts)
+        vim.keymap.set("n", "<leader>gsp", ":Git stash pop stash@{", opts)
     end,
 })
