@@ -4,7 +4,7 @@ lsp_zero.preset("recommended")
 lsp_zero.setup()
 
 require("lspconfig").lua_ls.setup(lsp_zero.nvim_lua_ls())
-require("lspconfig").tsserver.setup({})
+require("lspconfig").ts_ls.setup({})
 require("lspconfig").bashls.setup({
     filetypes = "sh",
     settings = {
@@ -16,7 +16,7 @@ require("lspconfig").bashls.setup({
 })
 require("lspconfig").terraformls.setup({})
 require("lspconfig").eslint.setup({})
-require("lspconfig").python_lsp_server.setup({})
+require("lspconfig").pylsp.setup({})
 
 -- ========== LSP Mason ==========
 require("mason").setup({})
@@ -26,6 +26,7 @@ require("mason-lspconfig").setup({
     ensure_installed = {
         "eslint",
         "ts_ls",
+        "pylsp",
         "rust_analyzer",
         "terraformls",
         "bashls",
