@@ -29,5 +29,10 @@ vim.g.NERDCustomDelimiters = {
         left = "#",
         leftAlt = "# ==========",
         rightAlt = "=========="
-    }
+    },
+    typescript = {
+        left = "//",
+        leftAlt = "// ==========",
+        rightAlt = "=========="
+    },
 }
