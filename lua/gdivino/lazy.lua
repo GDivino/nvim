@@ -40,6 +40,7 @@ local plugins = {
 
     -- ========== fugitive ==========
     { "GDivino/vim-fugitive" },
+    -- { "tpope/vim-fugitive" },
 
     -- ========== LSP ==========
     { "williamboman/mason.nvim" },
@@ -58,7 +59,8 @@ local plugins = {
 
     -- ========== yaml neovim ==========
     {
-        "cuducos/yaml.nvim",
+        "GDivino/yaml.nvim",
+        -- "cuducos/yaml.nvim",
         ft = { "yaml" }, -- optional
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
