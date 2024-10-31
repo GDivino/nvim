@@ -39,7 +39,7 @@ local plugins = {
     { "mbbill/undotree" },
 
     -- ========== fugitive ==========
-    { "tpope/vim-fugitive" },
+    { "GDivino/vim-fugitive" },
 
     -- ========== LSP ==========
     { "williamboman/mason.nvim" },
