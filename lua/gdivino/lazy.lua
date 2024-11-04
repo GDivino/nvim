@@ -33,7 +33,10 @@ local plugins = {
     },
 
     -- ========== harpoon ==========
-    { "theprimeagen/harpoon" },
+    {
+        "theprimeagen/harpoon",
+        branch = "harpoon2"
+    },
 
     -- ========== undotree ==========
     { "mbbill/undotree" },
