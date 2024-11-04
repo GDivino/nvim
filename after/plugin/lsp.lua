@@ -24,8 +24,11 @@ require("lspconfig").bashls.setup({
     single_file_support = true
 })
 require("lspconfig").terraformls.setup({})
-require("lspconfig").eslint.setup({})
+require("lspconfig").eslint.setup({
+    filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte", "astro" }
+})
 require("lspconfig").pylsp.setup({})
+require("lspconfig").yamlls.setup({})
 
 -- ========== LSP Mason ==========
 require("mason").setup({})
@@ -40,6 +43,7 @@ require("mason-lspconfig").setup({
         "terraformls",
         "bashls",
         "lua_ls",
+        "yamlls"
     },
 
     handlers = {
