@@ -40,11 +40,11 @@ vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/the
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 vim.keymap.set("n", "<leader><leader>", function()
-  vim.cmd("so")
+    vim.cmd("so")
 end)
 
 vim.keymap.set("n", "<leader>dd", function() vim.cmd("echo @%") end)
-vim.keymap.set("n", "<leader>dy", ":redir @* | echon @% | redir END<CR>")
+vim.keymap.set("n", "<leader>dy", ":redir @* | echon expand('%:p') | redir END<CR>")
 
 vim.keymap.set("n", "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
 vim.keymap.set("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
