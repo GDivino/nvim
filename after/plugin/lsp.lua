@@ -26,7 +26,6 @@ require("lspconfig").bashls.setup({
 require("lspconfig").terraformls.setup({})
 require("lspconfig").eslint.setup({})
 require("lspconfig").pylsp.setup({})
--- require("lspconfig").yamlls.setup({})
 
 -- ========== LSP Mason ==========
 require("mason").setup({})
@@ -41,7 +40,6 @@ require("mason-lspconfig").setup({
         "terraformls",
         "bashls",
         "lua_ls",
-        "yamlls"
     },
 
     handlers = {
