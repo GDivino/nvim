@@ -2,7 +2,12 @@
 -- local ui = require("harpoon.ui")
 local harpoon = require("harpoon")
 -- local ui = require("harpoon.ui")
-harpoon:setup({})
+harpoon:setup({
+    settings = {
+        save_on_toggle = true,
+        sync_on_ui_close = true
+    }
+})
 
 vim.keymap.set("n", "<leader>ha", function()
     harpoon:list():add()
