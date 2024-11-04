@@ -4,9 +4,18 @@ lsp_zero.preset("recommended")
 lsp_zero.setup()
 
 require("lspconfig").lua_ls.setup(lsp_zero.nvim_lua_ls())
-require("lspconfig").ts_ls.setup({})
+require("lspconfig").ts_ls.setup({
+    filetypes = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+    },
+})
 require("lspconfig").bashls.setup({
-    filetypes = "sh",
+    filetypes = { "sh" },
     settings = {
         bashIde = {
             globPattern = "*@(.sh|.inc|.bash|.command)"
@@ -17,6 +26,7 @@ require("lspconfig").bashls.setup({
 require("lspconfig").terraformls.setup({})
 require("lspconfig").eslint.setup({})
 require("lspconfig").pylsp.setup({})
+-- require("lspconfig").yamlls.setup({})
 
 -- ========== LSP Mason ==========
 require("mason").setup({})
@@ -31,6 +41,7 @@ require("mason-lspconfig").setup({
         "terraformls",
         "bashls",
         "lua_ls",
+        "yamlls"
     },
 
     handlers = {
