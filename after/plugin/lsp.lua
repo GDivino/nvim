@@ -29,6 +29,7 @@ require("lspconfig").eslint.setup({
 })
 require("lspconfig").pylsp.setup({})
 require("lspconfig").yamlls.setup({})
+require("lspconfig").jsonls.setup({})
 
 -- ========== LSP Mason ==========
 require("mason").setup({})
@@ -43,7 +44,8 @@ require("mason-lspconfig").setup({
         "terraformls",
         "bashls",
         "lua_ls",
-        "yamlls"
+        "yamlls",
+        "jsonls",
     },
 
     handlers = {
