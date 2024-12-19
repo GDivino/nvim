@@ -44,7 +44,7 @@ end
 -- BufNew: triggers autocmd after exiting command line
 -- BufEnter: triggers autocmd after exiting telescope or similar tools that pop up like telescope
 -- BufWinEnter: triggers autocmd when opening the file
-autocmd({ 'BufWinEnter', 'BufEnter', 'BufNew', 'FileType' }, {
+autocmd({ 'BufWinEnter', 'BufEnter', 'BufNew', 'FileType', 'BufWrite' }, {
     group = GDivino_Lualine,
     pattern = '*',
     callback = function()
