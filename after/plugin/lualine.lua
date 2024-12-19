@@ -2,7 +2,7 @@ local yaml = require('yaml_nvim')
 local GDivino_Lualine = vim.api.nvim_create_augroup("GDivino_Lualine", {})
 local autocmd = vim.api.nvim_create_autocmd
 
-function luaLineConf(content)
+local function luaLineConf(content)
     require('lualine').setup({
         options = {
             icons_enabled = true,
