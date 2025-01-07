@@ -40,7 +40,14 @@ vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/the
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("b#")
+    vim.cmd("so")
+end)
+
+vim.keymap.set("n", "<C-p>", function()
+    vim.cmd("bprevious")
+end)
+vim.keymap.set("n", "<C-n>", function()
+    vim.cmd("bnext")
 end)
 
 vim.keymap.set("n", "<leader>dd", function() vim.cmd("echo @%") end)
