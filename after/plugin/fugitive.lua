@@ -39,11 +39,12 @@ autocmd("BufWinEnter", {
         -- vim.keymap.set("n", "<leader>ga", ":Git add .<CR>", opts)
         -- vim.keymap.set("n", "<leader>gb", ":Git stash list<CR>", opts)
         vim.keymap.set("n", "<leader>go", ":Git push -u origin ", opts)
-        vim.keymap.set("n", "<leader>gB", ":Git stash pop ", opts)
         vim.keymap.set("n", "<leader>ga", "<cmd>Git add .<CR>", opts)
         vim.keymap.set("n", "<leader>gc", "<cmd>Git commit <CR>", opts)
         vim.keymap.set("n", "<leader>gsp", ":Git stash push ", opts)
         vim.keymap.set("n", "<leader>gsd", ":Git stash drop stash@{", opts)
         vim.keymap.set("n", "<leader>gsP", ":Git stash pop stash@{", opts)
+        vim.keymap.set("n", "<leader>gB", "<cmd>Git log --oneline --graph --decorate --all<CR>", opts)
+        vim.keymap.set("n", "<leader>gb", "<cmd>Git log --oneline --graph --decorate<CR>", opts)
     end,
 })
