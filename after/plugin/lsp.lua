@@ -30,6 +30,7 @@ require("lspconfig").eslint.setup({
 require("lspconfig").pylsp.setup({})
 require("lspconfig").yamlls.setup({})
 require("lspconfig").jsonls.setup({})
+require("lspconfig").ruby_lsp.setup({})
 
 -- ========== LSP Mason ==========
 require("mason").setup({})
@@ -46,6 +47,7 @@ require("mason-lspconfig").setup({
         "lua_ls",
         "yamlls",
         "jsonls",
+        "ruby_lsp",
     },
 
     handlers = {
