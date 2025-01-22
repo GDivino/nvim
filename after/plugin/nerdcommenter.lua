@@ -35,4 +35,9 @@ vim.g.NERDCustomDelimiters = {
         leftAlt = "// ==========",
         rightAlt = "=========="
     },
+    ruby = {
+        left = "#",
+        leftAlt = "# ==========",
+        rightAlt = "=========="
+    }
 }

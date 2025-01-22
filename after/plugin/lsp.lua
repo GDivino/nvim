@@ -3,8 +3,11 @@ local lsp_zero = require("lsp-zero")
 lsp_zero.preset("recommended")
 lsp_zero.setup()
 
-require("lspconfig").lua_ls.setup(lsp_zero.nvim_lua_ls())
-require("lspconfig").ts_ls.setup({
+
+-- ========== lspconfig ==========
+local lspconfig = require("lspconfig")
+lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
+lspconfig.ts_ls.setup({
     filetypes = {
         "javascript",
         "javascriptreact",
@@ -14,7 +17,7 @@ require("lspconfig").ts_ls.setup({
         "typescript.tsx",
     },
 })
-require("lspconfig").bashls.setup({
+lspconfig.bashls.setup({
     filetypes = { "sh" },
     settings = {
         bashIde = {
@@ -23,14 +26,22 @@ require("lspconfig").bashls.setup({
     },
     single_file_support = true
 })
-require("lspconfig").terraformls.setup({})
-require("lspconfig").eslint.setup({
+lspconfig.terraformls.setup({})
+lspconfig.eslint.setup({
     filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte", "astro" }
 })
-require("lspconfig").pylsp.setup({})
-require("lspconfig").yamlls.setup({})
-require("lspconfig").jsonls.setup({})
-require("lspconfig").ruby_lsp.setup({})
+lspconfig.pylsp.setup({})
+lspconfig.yamlls.setup({})
+lspconfig.jsonls.setup({})
+lspconfig.ruby_lsp.setup({
+    filetypes = { "ruby", "eruby" },
+    init_options = {
+        formatter = "standard",
+        linters = { "standard" }
+    },
+})
+lspconfig.standardrb.setup({})
+
 
 -- ========== LSP Mason ==========
 require("mason").setup({})
@@ -48,6 +59,7 @@ require("mason-lspconfig").setup({
         "yamlls",
         "jsonls",
         "ruby_lsp",
+        "standardrb",
     },
 
     handlers = {
@@ -58,6 +70,7 @@ require("mason-lspconfig").setup({
 lsp_zero.set_preferences({
     sign_icons = {}
 })
+
 
 -- ========== CMP ==========
 local cmp = require("cmp")
@@ -75,6 +88,7 @@ cmp.setup({
     })
 })
 
+
 -- ========== autocmd ==========
 local GDivino_lsp = vim.api.nvim_create_augroup("GDivino_lsp", {})
 local autocmd = vim.api.nvim_create_autocmd
@@ -89,6 +103,17 @@ autocmd("BufWinEnter", {
         vim.keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>", opts)
     end,
 })
+autocmd("FileType", {
+    group = GDivino_lsp,
+    pattern = "ruby",
+    callback = function()
+        vim.lsp.start {
+            name = "standard",
+            cmd = { "/opt/homebrew/lib/ruby/gems/3.4.0/bin/standardrb", "--lsp" },
+        }
+    end,
+})
+
 
 -- ========== terraform autocmd ==========
 local GDivino_tf_lsp = vim.api.nvim_create_augroup("GDivino_tf_lsp", {})
