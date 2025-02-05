@@ -119,6 +119,17 @@ local plugins = {
         -- dependencies = { { "echasnovski/mini.icons", opts = {} } },
         -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
     },
+
+    -- ========== markdown preview ==========
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        build = "cd app && yarn install",
+        init = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+        end,
+        ft = { "markdown" },
+    },
 }
 
 require("lazy").setup(plugins, opts)
