@@ -40,7 +40,6 @@ lspconfig.ruby_lsp.setup({
         linters = { "standard" }
     },
 })
-lspconfig.standardrb.setup({})
 
 
 -- ========== LSP Mason ==========
@@ -59,7 +58,7 @@ require("mason-lspconfig").setup({
         "yamlls",
         "jsonls",
         "ruby_lsp",
-        "standardrb",
+        -- "standardrb",
     },
 
     handlers = {
@@ -103,17 +102,6 @@ autocmd("BufWinEnter", {
         vim.keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>", opts)
     end,
 })
-autocmd("FileType", {
-    group = GDivino_lsp,
-    pattern = "ruby",
-    callback = function()
-        vim.lsp.start {
-            name = "standard",
-            cmd = { "/opt/homebrew/lib/ruby/gems/3.4.0/bin/standardrb", "--lsp" },
-        }
-    end,
-})
-
 
 -- ========== terraform autocmd ==========
 local GDivino_tf_lsp = vim.api.nvim_create_augroup("GDivino_tf_lsp", {})
