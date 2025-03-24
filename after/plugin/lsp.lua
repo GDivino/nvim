@@ -34,6 +34,7 @@ lspconfig.pylsp.setup({})
 lspconfig.yamlls.setup({})
 lspconfig.jsonls.setup({})
 lspconfig.ruby_lsp.setup({
+    cmd = { "ruby-lsp" },
     filetypes = { "ruby", "eruby" },
     init_options = {
         formatter = "standard",
@@ -58,7 +59,6 @@ require("mason-lspconfig").setup({
         "yamlls",
         "jsonls",
         "ruby_lsp",
-        -- "standardrb",
     },
 
     handlers = {
@@ -100,6 +100,17 @@ autocmd("BufWinEnter", {
 
         vim.keymap.set("n", "<leader>lv", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
         vim.keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>", opts)
+    end,
+})
+
+autocmd("FileType", {
+    pattern = { "ruby", "eruby" },
+    group = GDivino_lsp,
+    callback = function()
+        vim.lsp.start {
+            name = "standard",
+            cmd = { "/opt/homebrew/lib/ruby/gems/3.4.0/bin/standardrb", "--lsp" }
+        }
     end,
 })
 
