@@ -83,11 +83,13 @@ local plugins = {
     -- ========== copilot ==========
     -- { "github/copilot.vim" },
 
-    -- ========== ultimate auto pair.nvim ==========
+    -- ========== nvim autopairs ==========
     {
-        "altermo/ultimate-autopair.nvim",
-        event = { "InsertEnter", "CmdlineEnter" },
-        branch = "v0.6", --recommended as each new version will have breaking changes
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+        -- use opts = {} for passing setup options
+        -- this is equivalent to setup({}) function
     },
 
     -- ========== noice.nvim ==========
