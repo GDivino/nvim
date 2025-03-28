@@ -103,6 +103,31 @@ autocmd("BufWinEnter", {
     end,
 })
 
+autocmd("LspAttach", {
+    group = GDivino_lsp,
+    callback = function(event)
+        vim.keymap.set("n", "<leader>gd", require("telescope.builtin").lsp_definitions, {
+            buffer = event.buf,
+            desc = "LSP: [G]oto [d]efinition",
+        })
+
+        vim.keymap.set("n", "<leader>gr", require("telescope.builtin").lsp_references, {
+            buffer = event.buf,
+            desc = "LSP: [G]oto [R]eferences",
+        })
+
+        vim.keymap.set("n", "<leader>gI", require("telescope.builtin").lsp_implementations, {
+            buffer = event.buf,
+            desc = "LSP: [G]oto [I]mplementation",
+        })
+
+        vim.keymap.set("n", "<leader>gD", require("telescope.builtin").lsp_type_definitions, {
+            buffer = event.buf,
+            desc = "LSP: [G]oto Type [D]efinitions",
+        })
+    end
+})
+
 autocmd("FileType", {
     pattern = { "ruby", "eruby" },
     group = GDivino_lsp,

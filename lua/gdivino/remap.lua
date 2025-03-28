@@ -53,9 +53,9 @@ end)
 vim.keymap.set("n", "<leader>dd", function() vim.cmd("echo @%") end)
 vim.keymap.set("n", "<leader>dy", ":redir @* | echon expand('%:p') | redir END<CR>")
 
-vim.keymap.set("n", "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
-vim.keymap.set("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-vim.keymap.set("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>")
+-- vim.keymap.set("n", "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
+-- vim.keymap.set("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+-- vim.keymap.set("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>")
 
 vim.keymap.set("n", "<leader>wh", "<cmd>hor split<CR>")
 vim.keymap.set("n", "<leader>wv", "<cmd>vert split<CR>")
