@@ -31,7 +31,7 @@ lspconfig.eslint.setup({
     filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte", "astro" }
 })
 lspconfig.pylsp.setup({})
-lspconfig.yamlls.setup({})
+-- lspconfig.yamlls.setup({})
 lspconfig.jsonls.setup({})
 lspconfig.ruby_lsp.setup({
     cmd = { "ruby-lsp" },
@@ -56,7 +56,7 @@ require("mason-lspconfig").setup({
         "terraformls",
         "bashls",
         "lua_ls",
-        "yamlls",
+        -- "yamlls",
         "jsonls",
         "ruby_lsp",
     },
