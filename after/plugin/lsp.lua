@@ -1,8 +1,6 @@
 -- ========== LSP zero ==========
 local lsp_zero = require("lsp-zero")
 lsp_zero.preset("recommended")
-lsp_zero.setup()
-
 
 -- ========== lspconfig ==========
 local lspconfig = require("lspconfig")
@@ -170,3 +168,6 @@ autocmd({ "BufRead", "BufNewFile" }, {
     pattern = { "*.tfstate", "*.tfstate.backup" },
     command = "set filetype=json",
 })
+
+-- ========== LSP zero setup ==========
+lsp_zero.setup()
