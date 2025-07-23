@@ -57,6 +57,7 @@ require("mason-lspconfig").setup({
         -- "yamlls",
         "jsonls",
         "ruby_lsp",
+        "gopls",
     },
 
     handlers = {
