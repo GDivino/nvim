@@ -64,5 +64,10 @@ vim.keymap.set("n", "<leader>dy", ":redir @* | echon expand('%:p') | redir END<C
 vim.keymap.set("n", "<leader>wh", "<cmd>hor split<CR>")
 vim.keymap.set("n", "<leader>wv", "<cmd>vert split<CR>")
 
+vim.keymap.set("n", "<leader><Esc>", "<Cmd>nohlsearch<CR>", {
+    desc = "Clear search highlights",
+    silent = true
+})
+
 --  vim.keymap.set("n", "<leader>wq", "ciw\"<C-r>\"\"<esc>")
 --  vim.keymap.set("n", "<leader>wu", "di\"hPl2x")
