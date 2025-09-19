@@ -121,26 +121,6 @@ require("mason-lspconfig").setup({
 -- ========== LSP Mason ==========
 
 
--- ========== CMP ==========
-
-local cmp = require("cmp")
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-cmp.setup({
-    window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-    },
-    mapping = cmp.mapping.preset.insert({
-        ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-        ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-        ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-        ["<C-Space>"] = cmp.mapping.complete(),
-    })
-})
-
--- ========== CMP ==========
-
-
 -- ========== autocmd ==========
 
 local GDivino_lsp = vim.api.nvim_create_augroup("GDivino_lsp", {})
@@ -197,35 +177,36 @@ autocmd("FileType", {
 
 
 -- ========== terraform autocmd ==========
-local GDivino_tf_lsp = vim.api.nvim_create_augroup("GDivino_tf_lsp", {})
+-- local GDivino_tf_lsp = vim.api.nvim_create_augroup("GDivino_tf_lsp", {})
+-- OLD AUTOCMD
 -- autocmd({ "BufRead", "BufNewFile" }, {
 --     group = GDivino_tf_lsp,
 --     pattern = "*.tf",
 --     command = "silent! autocmd! filetypedetect",
 -- })
 
-autocmd({ "BufRead", "BufNewFile" }, {
-    group = GDivino_tf_lsp,
-    pattern = "*.hcl",
-    command = "set filetype=hcl",
-})
+-- autocmd({ "BufRead", "BufNewFile" }, {
+--     group = GDivino_tf_lsp,
+--     pattern = "*.hcl",
+--     command = "set filetype=hcl",
+-- })
 
-autocmd({ "BufRead", "BufNewFile" }, {
-    group = GDivino_tf_lsp,
-    pattern = { ".terraformrc", "terraform.rc" },
-    command = "set filetype=hcl",
-})
+-- autocmd({ "BufRead", "BufNewFile" }, {
+--     group = GDivino_tf_lsp,
+--     pattern = { ".terraformrc", "terraform.rc" },
+--     command = "set filetype=hcl",
+-- })
 
-autocmd({ "BufRead", "BufNewFile" }, {
-    group = GDivino_tf_lsp,
-    pattern = { "*.tf", "*.tfvars" },
-    command = "set filetype=terraform",
-})
+-- autocmd({ "BufRead", "BufNewFile" }, {
+--     group = GDivino_tf_lsp,
+--     pattern = { "*.tf", "*.tfvars" },
+--     command = "set filetype=terraform",
+-- })
 
-autocmd({ "BufRead", "BufNewFile" }, {
-    group = GDivino_tf_lsp,
-    pattern = { "*.tfstate", "*.tfstate.backup" },
-    command = "set filetype=json",
-})
+-- autocmd({ "BufRead", "BufNewFile" }, {
+--     group = GDivino_tf_lsp,
+--     pattern = { "*.tfstate", "*.tfstate.backup" },
+--     command = "set filetype=json",
+-- })
 
 -- ========== autocmd ==========
