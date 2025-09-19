@@ -46,8 +46,8 @@ local plugins = {
     -- { "tpope/vim-fugitive" },
 
     -- ========== LSP ==========
-    { "williamboman/mason.nvim" },
-    { "williamboman/mason-lspconfig.nvim" },
+    { "mason-org/mason.nvim" },
+    { "mason-org/mason-lspconfig.nvim" },
     {
         "VonHeikemen/lsp-zero.nvim",
         branch = "v3.x"
