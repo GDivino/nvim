@@ -1,98 +1,27 @@
 -- ========== lspconfig ==========
 
-vim.lsp.config('lua_ls', {
-    on_init = function(client)
-        if client.workspace_folders then
-            local path = client.workspace_folders[1].name
-            if
-                path ~= vim.fn.stdpath('config')
-                and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
-            then
-                return
-            end
-        end
-
-        client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-            runtime = {
-                -- Tell the language server which version of Lua you're using (most
-                -- likely LuaJIT in the case of Neovim)
-                version = 'LuaJIT',
-                -- Tell the language server how to find Lua modules same way as Neovim
-                -- (see `:h lua-module-load`)
-                path = {
-                    'lua/?.lua',
-                    'lua/?/init.lua',
-                },
-            },
-            -- Make the server aware of Neovim runtime files
-            workspace = {
-                checkThirdParty = false,
-                library = {
-                    vim.env.VIMRUNTIME
-                    -- Depending on the usage, you might want to add additional paths
-                    -- here.
-                    -- '${3rd}/luv/library'
-                    -- '${3rd}/busted/library'
-                }
-                -- Or pull in all of 'runtimepath'.
-                -- NOTE: this is a lot slower and will cause issues when working on
-                -- your own configuration.
-                -- See https://github.com/neovim/nvim-lspconfig/issues/3189
-                -- library = {
-                --   vim.api.nvim_get_runtime_file('', true),
-                -- }
-            }
-        })
-    end,
-    settings = {
-        Lua = {}
-    }
+vim.lsp.enable({
+    'lua_ls',
+    'ts_ls',
+    'bashls',
+    'terraformls',
+    'eslint',
+    'pylsp',
+    'jsonls',
+    'ruby_lsp',
 })
-vim.lsp.config('ts_ls', {
-    cmd = { "typescript-language-server", "--stdio" },
-    filetypes = {
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx",
-        "typescript",
-        "typescriptreact",
-        "typescript.tsx",
+
+vim.diagnostic.config({
+    virtual_lines = false,
+    virtual_text = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
+    float = {
+        border = "rounded",
+        source = true,
     },
 })
-vim.lsp.config('bashls', {
-    filetypes = { "bash", "sh" },
-    single_file_support = true
-})
-local base_on_attach = vim.lsp.config.eslint.on_attach
-vim.lsp.config('eslint', {
-    on_attach = function(client, bufnr)
-        if not base_on_attach then return end
-
-        base_on_attach(client, bufnr)
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            command = "LspEslintFixAll",
-        })
-    end,
-    filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte", "astro" }
-})
-vim.lsp.config('ruby_lsp', {
-    cmd = { "ruby-lsp" },
-    filetypes = { "ruby", "eruby" },
-    init_options = {
-        formatter = "standard",
-        linters = { "standard" }
-    },
-})
-
-vim.lsp.enable('lua_ls')
-vim.lsp.enable('ts_ls')
-vim.lsp.enable('bashls')
-vim.lsp.enable('terraformls')
-vim.lsp.enable('eslint')
-vim.lsp.enable('pylsp')
-vim.lsp.enable('jsonls')
-vim.lsp.enable('ruby_lsp')
 
 -- ========== lspconfig ==========
 
@@ -177,7 +106,7 @@ autocmd("FileType", {
 
 
 -- ========== terraform autocmd ==========
--- local GDivino_tf_lsp = vim.api.nvim_create_augroup("GDivino_tf_lsp", {})
+local GDivino_tf_lsp = vim.api.nvim_create_augroup("GDivino_tf_lsp", {})
 -- OLD AUTOCMD
 -- autocmd({ "BufRead", "BufNewFile" }, {
 --     group = GDivino_tf_lsp,
@@ -185,28 +114,28 @@ autocmd("FileType", {
 --     command = "silent! autocmd! filetypedetect",
 -- })
 
--- autocmd({ "BufRead", "BufNewFile" }, {
---     group = GDivino_tf_lsp,
---     pattern = "*.hcl",
---     command = "set filetype=hcl",
--- })
+autocmd({ "BufRead", "BufNewFile" }, {
+    group = GDivino_tf_lsp,
+    pattern = "*.hcl",
+    command = "set filetype=hcl",
+})
 
--- autocmd({ "BufRead", "BufNewFile" }, {
---     group = GDivino_tf_lsp,
---     pattern = { ".terraformrc", "terraform.rc" },
---     command = "set filetype=hcl",
--- })
+autocmd({ "BufRead", "BufNewFile" }, {
+    group = GDivino_tf_lsp,
+    pattern = { ".terraformrc", "terraform.rc" },
+    command = "set filetype=hcl",
+})
 
--- autocmd({ "BufRead", "BufNewFile" }, {
---     group = GDivino_tf_lsp,
---     pattern = { "*.tf", "*.tfvars" },
---     command = "set filetype=terraform",
--- })
+autocmd({ "BufRead", "BufNewFile" }, {
+    group = GDivino_tf_lsp,
+    pattern = { "*.tf", "*.tfvars" },
+    command = "set filetype=terraform",
+})
 
--- autocmd({ "BufRead", "BufNewFile" }, {
---     group = GDivino_tf_lsp,
---     pattern = { "*.tfstate", "*.tfstate.backup" },
---     command = "set filetype=json",
--- })
+autocmd({ "BufRead", "BufNewFile" }, {
+    group = GDivino_tf_lsp,
+    pattern = { "*.tfstate", "*.tfstate.backup" },
+    command = "set filetype=json",
+})
 
 -- ========== autocmd ==========
