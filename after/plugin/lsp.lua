@@ -9,11 +9,12 @@ vim.lsp.enable({
     'pylsp',
     'jsonls',
     'ruby_lsp',
+    'marksman',
 })
 
 vim.diagnostic.config({
-    virtual_lines = false,
-    virtual_text = true,
+    virtual_lines = true,
+    virtual_text = false,
     underline = true,
     update_in_insert = false,
     severity_sort = true,
@@ -44,6 +45,7 @@ require("mason-lspconfig").setup({
         "jsonls",
         "ruby_lsp",
         "gopls",
+        "marksman",
     },
 })
 
