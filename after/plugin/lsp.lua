@@ -47,7 +47,6 @@ require("mason-lspconfig").setup({
         "ruby_lsp",
         "gopls",
         "marksman",
-        "shellcheck",
     },
 })
 
