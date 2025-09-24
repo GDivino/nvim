@@ -10,6 +10,7 @@ vim.lsp.enable({
     'jsonls',
     'ruby_lsp',
     'marksman',
+    'shellcheck',
 })
 
 vim.diagnostic.config({
@@ -46,6 +47,7 @@ require("mason-lspconfig").setup({
         "ruby_lsp",
         "gopls",
         "marksman",
+        "shellcheck",
     },
 })
 
