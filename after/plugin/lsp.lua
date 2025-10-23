@@ -11,7 +11,7 @@ vim.lsp.enable({
     'ruby_lsp',
     'marksman',
     'shellcheck',
-    'yamlls',
+    -- 'yamlls',
 })
 
 vim.diagnostic.config({
@@ -43,7 +43,7 @@ require("mason-lspconfig").setup({
         "terraformls",
         "bashls",
         "lua_ls",
-        "yamlls",
+        -- "yamlls",
         "jsonls",
         "ruby_lsp",
         "gopls",
