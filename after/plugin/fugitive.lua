@@ -44,6 +44,7 @@ autocmd("BufWinEnter", {
         vim.keymap.set("n", "<leader>gsp", ":Git stash push ", opts)
         vim.keymap.set("n", "<leader>gsd", ":Git stash drop stash@{", opts)
         vim.keymap.set("n", "<leader>gsP", ":Git stash pop stash@{", opts)
+        vim.keymap.set("n", "<leader>gsa", ":Git stash apply stash@{", opts)
         vim.keymap.set("n", "<leader>gT", "<cmd>Git log --oneline --graph --decorate --all<CR>", opts)
         vim.keymap.set("n", "<leader>gt", "<cmd>Git log --oneline --graph --decorate<CR>", opts)
     end,
