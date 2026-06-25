@@ -19,13 +19,6 @@ local plugins = {
         dependencies = { "nvim-lua/plenary.nvim" }
     },
 
-    -- ========== treesitter ==========
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate"
-    },
-    { "nvim-treesitter/playground" },
-
     -- ========== fonts ==========
     {
         "rose-pine/neovim",
