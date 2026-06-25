@@ -142,4 +142,4 @@ autocmd({ "BufRead", "BufNewFile" }, {
     command = "set filetype=json",
 })
 
--- ========== autocmd ==========
+-- ========== terraform autocmd ==========
