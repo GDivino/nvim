@@ -47,6 +47,22 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
+-- ========== comments ==========
+vim.keymap.set("n", "<leader>ca", function()
+    local comment = vim.bo.commentstring:gsub("%%s", ""):gsub("%s+$", "")
+    vim.ui.input({ prompt = "Section name: " }, function(input)
+        if input and input ~= "" then
+            local line = comment .. " ========== " .. input .. " =========="
+            vim.api.nvim_put({ line }, "l", true, true)
+        end
+    end)
+end, { desc = "Insert section comment" })
+vim.keymap.set("n", "<leader>cl", "gcc", { remap = true })
+vim.keymap.set("v", "<leader>cl", "gc", { remap = true })
+vim.keymap.set("n", "<leader>c<leader>", "gcc", { remap = true })
+vim.keymap.set("v", "<leader>c<leader>", "gc", { remap = true })
+-- ========== comments ==========
+
 vim.keymap.set("n", "<C-p>", function()
     vim.cmd("bprevious")
 end)

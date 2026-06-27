@@ -15,8 +15,38 @@ local plugins = {
     -- ========== telescope ==========
     {
         "nvim-telescope/telescope.nvim",
-        tag = "0.1.3",
+        version = "0.2.2",
         dependencies = { "nvim-lua/plenary.nvim" }
+    },
+
+    -- ========== treesitter ==========
+    {
+        "nvim-treesitter/nvim-treesitter",
+        branch = "main",
+        build = ":TSUpdate",
+        init = function()
+            local ensure_installed = {
+                "hcl",
+                "terraform",
+                "javascript",
+                "typescript",
+                "c",
+                "lua",
+                "vim",
+                "vimdoc",
+                "query"
+            }
+            require("nvim-treesitter").install(ensure_installed)
+        end,
+        config = function()
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = { "*" },
+                callback = function()
+                    pcall(vim.treesitter.start)
+                    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                end,
+            })
+        end,
     },
 
     -- ========== fonts ==========
@@ -63,21 +93,6 @@ local plugins = {
             fuzzy = { implementation = "prefer_rust_with_warning" }
         },
         opts_extend = { "sources.default" }
-    },
-
-    -- ========== nerdcommenter ==========
-    -- { "preservim/nerdcommenter" },
-    { "GDivino/nerdcommenter" },
-
-    -- ========== yaml neovim ==========
-    {
-        "GDivino/yaml.nvim",
-        -- "cuducos/yaml.nvim",
-        ft = { "yaml" }, -- optional
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-            "nvim-telescope/telescope.nvim", -- optional
-        },
     },
 
     -- ========== lualine ==========

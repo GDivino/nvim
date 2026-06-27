@@ -1,4 +1,3 @@
-local yaml = require('yaml_nvim')
 local GDivino_Lualine = vim.api.nvim_create_augroup("GDivino_Lualine", {})
 local autocmd = vim.api.nvim_create_autocmd
 
@@ -48,12 +47,7 @@ autocmd({ 'BufWinEnter', 'BufEnter', 'BufNew', 'FileType', 'BufWrite' }, {
     group = GDivino_Lualine,
     pattern = '*',
     callback = function()
-        if vim.bo.ft ~= 'yaml' then
-            luaLineConf({ 'filename' })
-            return
-        end
-
-        luaLineConf({ yaml.get_yaml_key })
+        luaLineConf({ 'filename' })
     end
 })
 
