@@ -47,7 +47,7 @@ require("mason-lspconfig").setup({
         "jsonls",
         "ruby_lsp",
         "gopls",
-        "marksman",
+        "marksman"
     },
 })
 

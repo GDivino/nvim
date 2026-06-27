@@ -66,4 +66,4 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 vim.opt.inccommand = "split"
 
-vim.lsp.set_log_level("off")
+vim.lsp.set_log_level("debug")
