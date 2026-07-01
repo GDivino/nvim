@@ -71,7 +71,11 @@ vim.keymap.set("n", "<C-n>", function()
 end)
 
 vim.keymap.set("n", "<leader>dd", function() vim.cmd("echo @%") end)
-vim.keymap.set("n", "<leader>dy", ":redir @* | echon expand('%:p') | redir END<CR>")
+vim.keymap.set("n", "<leader>dy", function()
+    local path = vim.fn.expand("%:p")
+    path = path:gsub("^oil://", "")
+    vim.fn.setreg("*", path)
+end)
 
 -- vim.keymap.set("n", "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
 -- vim.keymap.set("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
