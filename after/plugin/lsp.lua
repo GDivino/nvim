@@ -1,5 +1,4 @@
 -- ========== lspconfig ==========
-
 vim.lsp.enable({
     'lua_ls',
     'ts_ls',
@@ -53,9 +52,7 @@ require("mason-lspconfig").setup({
 
 -- ========== LSP Mason ==========
 
-
--- ========== autocmd ==========
-
+-- ========== Autocmd ==========
 local GDivino_lsp = vim.api.nvim_create_augroup("GDivino_lsp", {})
 local autocmd = vim.api.nvim_create_autocmd
 autocmd("BufWinEnter", {
@@ -66,10 +63,36 @@ autocmd("BufWinEnter", {
         local opts = { buffer = bufnr, remap = false }
 
         vim.keymap.set("n", "<leader>lv", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-        vim.keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>", opts)
+        vim.keymap.set("n", "<leader>lr", function()
+            vim.cmd("lsp restart")
+            vim.cmd("e")
+        end, opts)
     end,
 })
 
+autocmd('LspAttach', {
+    group = GDivino_lsp,
+    callback = function(args)
+        local buf = args.buf
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+        -- Disable codelens capability for this client
+        if client and client.server_capabilities.codeLensProvider then
+            client.server_capabilities.codeLensProvider = false
+        end
+
+        for _, c in ipairs(vim.lsp.get_clients({ bufnr = buf })) do
+            if c.server_capabilities.semanticTokensProvider then
+                -- Stop and restart the semantic engine for this buffer
+                vim.lsp.semantic_tokens.stop(buf, c.id)
+                vim.lsp.semantic_tokens.start(buf, c.id)
+            end
+        end
+        print("Semantic highlighting engine refreshed!")
+    end,
+})
+
+-- ========== Go to Definition ==========
 autocmd("LspAttach", {
     group = GDivino_lsp,
     callback = function(event)
@@ -95,6 +118,7 @@ autocmd("LspAttach", {
     end
 })
 
+-- ========== Ruby ==========
 autocmd("FileType", {
     pattern = { "ruby", "eruby" },
     group = GDivino_lsp,
@@ -106,17 +130,8 @@ autocmd("FileType", {
     end,
 })
 
--- ========== autocmd ==========
-
-
 -- ========== terraform autocmd ==========
 local GDivino_tf_lsp = vim.api.nvim_create_augroup("GDivino_tf_lsp", {})
--- OLD AUTOCMD
--- autocmd({ "BufRead", "BufNewFile" }, {
---     group = GDivino_tf_lsp,
---     pattern = "*.tf",
---     command = "silent! autocmd! filetypedetect",
--- })
 
 autocmd({ "BufRead", "BufNewFile" }, {
     group = GDivino_tf_lsp,
@@ -141,5 +156,3 @@ autocmd({ "BufRead", "BufNewFile" }, {
     pattern = { "*.tfstate", "*.tfstate.backup" },
     command = "set filetype=json",
 })
-
--- ========== terraform autocmd ==========
