@@ -5,12 +5,12 @@ vim.lsp.enable({
     'bashls',
     'terraformls',
     'eslint',
-    'pylsp',
     'jsonls',
     'ruby_lsp',
     'marksman',
     'shellcheck',
-    -- 'yamlls',
+    'ruff'
+    -- 'yamlls'
 })
 
 vim.diagnostic.config({
@@ -37,7 +37,6 @@ require("mason-lspconfig").setup({
     ensure_installed = {
         "eslint",
         "ts_ls",
-        "pylsp",
         "rust_analyzer",
         "terraformls",
         "bashls",
@@ -46,7 +45,8 @@ require("mason-lspconfig").setup({
         "jsonls",
         "ruby_lsp",
         "gopls",
-        "marksman"
+        "marksman",
+        "ruff"
     },
 })
 
